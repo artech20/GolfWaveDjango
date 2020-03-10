@@ -5,6 +5,7 @@
     <Name>GolfWave</Name>
     <RootNamespace>GolfWave</RootNamespace>
     <InterpreterId>MSBuild|envGolfWave|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,6 +47,7 @@
   <ItemGroup>
     <Folder Include="app\" />
     <Folder Include="app\migrations\" />
+    <Folder Include="app\media\" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
     <Folder Include="app\static\app\content\" />
@@ -56,6 +58,7 @@
     <Folder Include="GolfWave\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\home.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

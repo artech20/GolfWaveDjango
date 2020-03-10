@@ -4,9 +4,12 @@ Definition of urls for GolfWave.
 
 from datetime import datetime
 from django.urls import path
+from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from app import forms, views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -27,4 +30,7 @@ urlpatterns = [
          name='login'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('admin/', admin.site.urls),
-]
+    url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    url(r'^', include('cms.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
